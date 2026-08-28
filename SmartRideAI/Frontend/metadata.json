@@ -1,0 +1,6 @@
+{
+  "name": "SmartRide AI - Travel & Fare Planner",
+  "description": "Autonomous ReAct multi-tool agent for end-to-end travel itinerary planning, ML-driven Uber/Rapido fare estimation with surge dynamics, Leaflet maps, and exportable travel packages.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

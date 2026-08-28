@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SuperRide AI | Demand Estimator</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <main class="shell">
+            <header class="topbar">
+                <div class="brand-mark">SR<span>+</span></div>
+                <div class="brand-copy"><strong>SuperRide AI</strong><small>Demand intelligence</small></div>
+                <div class="status"><i></i> Model online</div>
+            </header>
+            <section class="intro">
+                <p class="eyebrow">LIVE ESTIMATION WORKSPACE</p>
+                <h1>See demand<br><em>before it moves.</em></h1>
+                <p class="lede">Tune the market signals below and let our trained linear model estimate weekly ride demand in real time.</p>
+            </section>
+            <section class="workspace">
+                <form id="prediction-form" class="panel input-panel">
+                    <div class="panel-heading"><div><p class="eyebrow">INPUT SIGNALS</p><h2>Market profile</h2></div><span class="step-label">01 / 02</span></div>
+                    <div class="field-grid">
+                        <label>Price per week <span>USD</span><input type="number" name="Priceperweek" placeholder="25" required></label>
+                        <label>Population <span>people</span><input type="number" name="Population" placeholder="1,750,000" required></label>
+                        <label>Monthly income <span>USD</span><input type="number" name="Monthlyincome" placeholder="6,550" required></label>
+                        <label>Parking cost <span>USD / month</span><input type="number" name="Averageparkingpermonth" placeholder="60" required></label>
+                    </div>
+                    <button type="submit" class="estimate-button"><span>Run live estimate</span><b>↗</b></button>
+                    <p id="form-error" class="form-error" role="alert"></p>
+                </form>
+                <aside class="panel result-panel">
+                    <div class="panel-heading"><div><p class="eyebrow">MODEL OUTPUT</p><h2>Weekly rides</h2></div><span class="live-dot">LIVE</span></div>
+                    <div class="result-value"><span id="prediction-value">---</span><small>rides / week</small></div>
+                    <p id="prediction-text" class="result-message">Enter your signals to generate a demand estimate.</p>
+                    <div class="workflow" aria-label="Estimation workflow">
+                        <div class="workflow-step active" data-step="1"><span>01</span><div><strong>Capture signals</strong><small>Market profile received</small></div></div>
+                        <div class="workflow-line"></div>
+                        <div class="workflow-step" data-step="2"><span>02</span><div><strong>Predict demand</strong><small>Linear regression inference</small></div></div>
+                        <div class="workflow-line"></div>
+                        <div class="workflow-step" data-step="3"><span>03</span><div><strong>Return estimate</strong><small>Result ready to act on</small></div></div>
+                    </div>
+                </aside>
+            </section>
+            <footer><span>Powered by scikit-learn</span><span>v1.0 / Linear Regression</span></footer>
+        </main>
+        <script>
+            const form = document.getElementById('prediction-form');
+            const value = document.getElementById('prediction-value');
+            const message = document.getElementById('prediction-text');
+            const error = document.getElementById('form-error');
+            const steps = [...document.querySelectorAll('.workflow-step')];
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                error.textContent = '';
+                value.textContent = '...';
+                message.textContent = 'Running model inference...';
+                steps.forEach((step, index) => step.classList.toggle('active', index < 2));
+                try {
+                    const response = await fetch('{{ url_for("api_predict") }}', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(Object.fromEntries(new FormData(form))) });
+                    const data = await response.json();
+                    if (!response.ok) throw new Error(data.error || 'Prediction failed.');
+                    value.textContent = data.prediction.toLocaleString();
+                    message.textContent = data.message;
+                    steps.forEach(step => step.classList.add('active'));
+                } catch (requestError) {
+                    value.textContent = '---';
+                    message.textContent = 'Estimate unavailable.';
+                    error.textContent = requestError.message;
+                    steps.forEach((step, index) => step.classList.toggle('active', index === 0));
+                }
+            });
+        </script>
+    </body>
+</html>

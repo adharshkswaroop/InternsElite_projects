@@ -1,0 +1,6 @@
+{
+  "name": "SUPER VIEW AI",
+  "description": "SUPER VIEW AI - Enterprise 10-Stage ML Lifecycle, Aspect-Based Sentiment Analysis (ABSA), BERTopic Discovery, Semantic Vector Search & Business Intelligence Platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

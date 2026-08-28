@@ -1,0 +1,42 @@
+# Customer Review Intelligence Platform
+
+An incremental, production-oriented NLP project that turns customer reviews into auditable business intelligence. The current implementation is **Milestone 1**: repository foundations and a minimal FastAPI service. No dataset, model, metrics, dashboard values, screenshots, or deployment results have been produced yet.
+
+## Problem Statement
+
+Customer feedback is valuable but difficult to analyze at scale. This project will provide a reproducible workflow for ingesting reviews, validating data, analyzing sentiment and aspects, and exposing evidence-backed analytics.
+
+## Current Features
+
+- Versioned FastAPI application with `/health`, `/ready`, and `/api/v1/health`.
+- Python packaging, pytest, and Ruff configuration.
+- Docker configuration for the backend.
+- Modular placeholders for the planned backend, ML, data, documentation, and deployment layers.
+- Deterministic text preparation and a train-on-demand TF-IDF + Logistic Regression baseline.
+- CPU-first, opt-in transformer sentiment inference with a DistilBERT default.
+- Rule-based aspect extraction, NMF topic discovery, and FAISS semantic-search foundations.
+- Evidence-grounded, provider-agnostic optional LLM insight generation.
+
+## Architecture
+
+See [architecture documentation](docs/architecture.md). The diagram is a target architecture, not a deployed-infrastructure claim.
+
+## Installation and local development
+
+Create a virtual environment, install `.[dev]`, then run `uvicorn backend.app.main:app --reload`. Open `http://127.0.0.1:8000/docs` for generated OpenAPI documentation.
+
+## Testing
+
+Run `pytest` and `ruff check .`.
+
+## Docker
+
+Run `docker compose up --build backend`. Only the backend container is configured in Milestone 1. Database, frontend, MLflow, Airflow, monitoring, and AWS deployment are not yet implemented.
+
+## Dataset, results, and deployment
+
+No dataset has been selected or acquired. No metrics, screenshots, badges, or deployment claims are present. Dataset licensing and experimental results will be documented only after actual reproducible execution.
+
+## Academic Integrity
+
+This project will document third-party datasets, models, libraries, and APIs as they are adopted. Experimental results will be reported only after reproducible execution.
