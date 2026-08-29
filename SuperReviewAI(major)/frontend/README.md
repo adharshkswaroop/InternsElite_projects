@@ -14,25 +14,15 @@ These images indicate the features and workflow pipeline of the project:
 
 ### Workflow Screens
 
-<p align="center">
-  <img src="../assets/Screenshot 2026-08-29 092040.png" alt="Executive dashboard" width="820" />
-</p>
+<img src="../assets/Screenshot 2026-08-29 092040.png" alt="Executive dashboard" width="820" style="display:block; margin:16px auto; max-width:100%; height:auto;" />
 
-<p align="center">
-  <img src="../assets/Screenshot 2026-08-29 092250.png" alt="Topic discovery and BERTopic clusters" width="820" />
-</p>
+<img src="../assets/Screenshot 2026-08-29 092250.png" alt="Topic discovery and BERTopic clusters" width="820" style="display:block; margin:16px auto; max-width:100%; height:auto;" />
 
-<p align="center">
-  <img src="../assets/Screenshot 2026-08-29 092401.png" alt="MLflow model registry and benchmark leaderboard" width="820" />
-</p>
+<img src="../assets/Screenshot 2026-08-29 092401.png" alt="MLflow model registry and benchmark leaderboard" width="820" style="display:block; margin:16px auto; max-width:100%; height:auto;" />
 
-<p align="center">
-  <img src="../assets/Screenshot 2026-08-29 092426.png" alt="Admin telemetry and system health" width="820" />
-</p>
+<img src="../assets/Screenshot 2026-08-29 092426.png" alt="Admin telemetry and system health" width="820" style="display:block; margin:16px auto; max-width:100%; height:auto;" />
 
-<p align="center">
-  <img src="../assets/Screenshot 2026-08-29 092638.png" alt="Sentiment analysis breakdown" width="820" />
-</p>
+<img src="../assets/Screenshot 2026-08-29 092638.png" alt="Sentiment analysis breakdown" width="820" style="display:block; margin:16px auto; max-width:100%; height:auto;" />
 
 ## Run Locally
 
