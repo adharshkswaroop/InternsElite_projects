@@ -12,11 +12,11 @@ These images indicate the features and workflow pipeline of the project:
 
 ### Workflow Screens
 
-<img src="./assets/itinerary-workflow.png" alt="Itinerary and daily schedule workflow" width="820" style="display:block; margin:16px auto; max-width:100%; height:auto;" />
+[![Itinerary and daily schedule workflow](https://github.com/adharshkswaroop/InternsElite_projects/raw/main/SmartRideAI%28minor%29/assets/itinerary-workflow.png)](https://github.com/adharshkswaroop/InternsElite_projects/blob/main/SmartRideAI%28minor%29/assets/itinerary-workflow.png)
 
-<img src="./assets/route-map-workflow.png" alt="Interactive route map workflow" width="820" style="display:block; margin:16px auto; max-width:100%; height:auto;" />
+[![Interactive route map workflow](https://github.com/adharshkswaroop/InternsElite_projects/raw/main/SmartRideAI%28minor%29/assets/route-map-workflow.png)](https://github.com/adharshkswaroop/InternsElite_projects/blob/main/SmartRideAI%28minor%29/assets/route-map-workflow.png)
 
-<img src="./assets/fare-estimator-workflow.png" alt="SmartRide fare estimator workflow" width="820" style="display:block; margin:16px auto; max-width:100%; height:auto;" />
+[![SmartRide fare estimator workflow](https://github.com/adharshkswaroop/InternsElite_projects/raw/main/SmartRideAI%28minor%29/assets/fare-estimator-workflow.png)](https://github.com/adharshkswaroop/InternsElite_projects/blob/main/SmartRideAI%28minor%29/assets/fare-estimator-workflow.png)
 
 ## Run Locally
 
