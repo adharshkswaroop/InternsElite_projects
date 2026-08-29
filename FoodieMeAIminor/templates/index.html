@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A focused restaurant discovery workspace for Bangalore.">
+  <title>TableScout | Restaurant discovery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="TableScout home"><span class="brand-mark">TS</span><span>TableScout</span></a>
+    <div class="status"><span class="status-dot"></span> Bangalore collection <span class="status-divider"></span> {{ "{:,}".format(filters.restaurant_count) }} places indexed</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">PERSONAL RESTAURANT INTELLIGENCE</p>
+        <h1>Find your next<br><em>great table.</em></h1>
+        <p class="hero-text">A sharper way to explore Bangalore's food scene. Tune the brief, compare the signal, and make a confident call.</p>
+      </div>
+      <div class="hero-note"><span class="note-kicker">LIVE INDEX</span><strong>{{ filters.area_count }}</strong><span>neighbourhoods<br>mapped</span></div>
+    </section>
+
+    <section class="workspace" aria-label="Restaurant recommendation workspace">
+      <aside class="filter-panel">
+        <div class="panel-heading"><span class="section-number">01</span><div><h2>Set your brief</h2><p>Tell us what matters tonight.</p></div></div>
+        <form id="recommendation-form">
+          <label class="field-label" for="query">Craving or cuisine</label>
+          <div class="input-wrap"><span class="input-icon">⌕</span><input id="query" name="query" type="search" placeholder="Pizza, biryani, coffee..." autocomplete="off"></div>
+          <label class="field-label" for="area">Neighbourhood</label>
+          <select id="area" name="area"><option value="">Anywhere in Bangalore</option>{% for area in filters.areas %}<option value="{{ area }}">{{ area }}</option>{% endfor %}</select>
+          <div class="field-row"><div><label class="field-label" for="mode">Occasion</label><select id="mode" name="mode"><option>Delivery</option><option>Dinner</option></select></div><div><label class="field-label" for="budget">Budget for two</label><div class="price-input"><span>₹</span><input id="budget" name="budget" type="number" value="1500" min="50" step="50"></div></div></div>
+          <div class="range-row"><label class="field-label" for="budget-range">Budget range</label><output id="budget-output">₹1,500</output></div>
+          <input id="budget-range" type="range" min="50" max="3000" step="50" value="1500">
+          <div class="range-labels"><span>₹50</span><span>₹3,000+</span></div>
+          <label class="toggle"><input id="vegetarian" name="vegetarian" type="checkbox"><span class="toggle-track"></span><span>Vegetarian only</span></label>
+          <button class="primary-button" type="submit"><span>Explore recommendations</span><span class="button-arrow">↗</span></button>
+        </form>
+        <div class="panel-foot"><span class="tiny-spark">✦</span> Results are ranked by fit, rating and value.</div>
+      </aside>
+
+      <section class="results-panel">
+        <div class="results-header"><div><p class="eyebrow">02 / YOUR SHORTLIST</p><h2 id="results-title">Worth a closer look</h2></div><span class="result-count" id="result-count">{{ results|length }} matches</span></div>
+        <div id="results-grid" class="results-grid">{% for restaurant in results %}{% include '_restuarant_card.html' %}{% endfor %}</div>
+        <div id="empty-state" class="empty-state{% if results %} hidden{% endif %}"><div class="empty-icon">⌁</div><h3>Nothing fits that brief yet.</h3><p>Try widening your budget or choosing another neighbourhood.</p></div>
+      </section>
+    </section>
+  </main>
+  <footer><span>TABLESCOUT / 2026</span><span>Built from a curated Bangalore restaurant index</span></footer>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

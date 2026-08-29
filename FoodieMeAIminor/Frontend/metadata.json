@@ -1,0 +1,6 @@
+{
+  "name": "FoodieMe",
+  "description": "Transform leftover ingredients and dietary constraints into gourmet recipes with verified USDA nutrition breakdowns, compatibility badges, shopping lists, and printable cards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

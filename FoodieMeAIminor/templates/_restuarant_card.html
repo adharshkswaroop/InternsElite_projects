@@ -1,0 +1,9 @@
+<article class="restaurant-card">
+  <div class="card-top"><span class="match-tag">TOP MATCH</span><a class="external-link" href="{{ restaurant.url }}" target="_blank" rel="noreferrer" aria-label="Open {{ restaurant.name }} on Zomato">↗</a></div>
+  <h3>{{ restaurant.name }}</h3>
+  <p class="card-area">⌖ {{ restaurant.area }}</p>
+  <p class="card-cuisines">{{ restaurant.cuisines }}</p>
+  <div class="card-divider"></div>
+  <div class="card-meta"><span class="rating"><b>★</b> {{ "%.1f"|format(restaurant.rating) }} <small>{{ restaurant.rating_label }}</small></span><span class="cost">₹{{ restaurant.cost }} <small>for two</small></span></div>
+  <div class="card-tags">{% if restaurant.delivery %}<span>Delivery</span>{% endif %}{% if restaurant.takeaway %}<span>Takeaway</span>{% endif %}{% if restaurant.indoor %}<span>Dine-in</span>{% endif %}</div>
+</article>
