@@ -14,15 +14,25 @@ These images indicate the features and workflow pipeline of the project:
 
 ### Workflow Screens
 
-![Executive dashboard](assets/executive-dashboard.png)
+<p align="center">
+  <img src="../assets/Screenshot 2026-08-29 092040.png" alt="Executive dashboard" width="820" />
+</p>
 
-![Topic discovery and BERTopic clusters](assets/topic-discovery.png)
+<p align="center">
+  <img src="../assets/Screenshot 2026-08-29 092250.png" alt="Topic discovery and BERTopic clusters" width="820" />
+</p>
 
-![MLflow model registry and benchmark leaderboard](assets/model-monitoring.png)
+<p align="center">
+  <img src="../assets/Screenshot 2026-08-29 092401.png" alt="MLflow model registry and benchmark leaderboard" width="820" />
+</p>
 
-![Admin telemetry and system health](assets/telemetry-health.png)
+<p align="center">
+  <img src="../assets/Screenshot 2026-08-29 092426.png" alt="Admin telemetry and system health" width="820" />
+</p>
 
-![Sentiment analysis breakdown](assets/sentiment-analysis-breakdown.png)
+<p align="center">
+  <img src="../assets/Screenshot 2026-08-29 092638.png" alt="Sentiment analysis breakdown" width="820" />
+</p>
 
 ## Run Locally
 

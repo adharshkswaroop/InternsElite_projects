@@ -12,11 +12,17 @@ These images indicate the features and workflow pipeline of the project:
 
 ### Workflow Screens
 
-![Itinerary and daily schedule workflow](assets/itinerary-workflow.png)
+<p align="center">
+  <img src="../assets/Screenshot 2026-08-29 090838.png" alt="Itinerary and daily schedule workflow" width="820" />
+</p>
 
-![Interactive route map workflow](assets/route-map-workflow.png)
+<p align="center">
+  <img src="../assets/Screenshot 2026-08-29 091133.png" alt="Interactive route map workflow" width="820" />
+</p>
 
-![SmartRide fare estimator workflow](assets/fare-estimator-workflow.png)
+<p align="center">
+  <img src="../assets/Screenshot 2026-08-29 091201.png" alt="SmartRide fare estimator workflow" width="820" />
+</p>
 
 ## Run Locally
 
